@@ -1,0 +1,41 @@
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapterimage{} % Chapter heading image
+\chapterspaceabove{2.5cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{2cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%------------------------------------------------
+
+%\bibliographystyle{bababbrv}
+%\bibliography{main}
+%\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+\chapter*{Referências Bibliográficas}
+\markboth{\sffamily\normalsize\bfseries Referências Bibliográficas}{\sffamily\normalsize\bfseries Referências Bibliográficas} % Set the page headers to display a Bibliography chapter name
+\addcontentsline{toc}{chapter}{\textcolor{cormodelo}{Referências Bibliográficas}} % Add a Bibliography heading to the table of contents
+
+\nocite{*}
+
+\printbibliography[heading=bibempty]
+
+%\include{respostas}
+
+% \section*{Articles}
+% \addcontentsline{toc}{section}{Articles} % Add the Articles subheading to the table of contents
+
+% \printbibliography[heading=bibempty, type=article] % Output article bibliography entries
+
+% \section*{Books}
+% \addcontentsline{toc}{section}{Books} % Add the Books subheading to the table of contents
+
+% \printbibliography[heading=bibempty, type=book] % Output book bibliography entries
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+% \cleardoublepage % Make sure the index starts on an odd (right side) page
+% \phantomsection
+% \addcontentsline{toc}{chapter}{\textcolor{ocre}{Índice Remissivo}} % Add an Index heading to the table of contents
+% \printindex % Output the index

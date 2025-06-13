@@ -1,0 +1,254 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 3.1 (February 18, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors:
+% Vel (vel@latextemplates.com)
+% Mathias Legrand (legrand.mathias@gmail.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s indexstyle.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	12pt, % Default font size, select one of 10pt, 11pt or 12pt
+	%fleqn, % Left align equations
+	a4paper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
+	oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
+]{LegrandOrangeBook}
+
+% Book information for PDF metadata, remove/comment this block if not required 
+\hypersetup{
+	pdftitle={Introdução à Matemática Superior}, % Title field
+	pdfauthor={Jordan Lambert}, % Author field
+	pdfsubject={Apostila}, % Subject field
+	pdfkeywords={IMS, Pré-Cálculo, ...}, % Keywords
+	pdfcreator={LaTeX}, % Content creator field
+}
+
+\addbibresource{biblio.bib} % Bibliography file
+
+%%%%%%%%%%%%%%%%%%%%%
+%%% DEFINA A COR %%%%
+\definecolor{cormodelo}{RGB}{163, 11, 11}
+%%%%%%%%%%%%%%%%%%%%%
+
+\let\cleardoublepage\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Opcões de Linguagem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english,brazil]{babel} %fazemos com que o compilador traduza expressões como “table of contents”
+\usepackage{csquotes}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhf{}
+%\fancyhead[RE]{Introdução à Matemática Superior}
+%\fancyhead[LO]{\rightmark}
+%\fancyhead[LE,RO]{\thepage}
+
+%license footnote
+\cfoot{\tiny{Licença \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA-4.0}.}}
+
+%\usepackage[fixlanguage]{babelbib}
+%\selectbiblanguage{brazil}
+
+%%%% ams-latex %%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{comment}
+%%%% graphics %%%%
+\usepackage{graphicx} % Possibilita o uso de figuras e gráficos (suporta os formatos EPS, PDF, JPG e PNG)
+%\usepackage{caption}
+
+%%%% links %%%%
+%\usepackage[colorlinks=true, allcolors=blue]{hyperref}   %usado para incluir links no texto
+
+%%%% indent first line %%%%
+\usepackage{indentfirst}
+
+%%%% citation %%%%
+%\usepackage{cite}               % usado para citações
+
+%%%% lists %%%%
+\usepackage{enumerate}          % para fazer listas com tipos diferentes de itens (a, i, 1,...)
+
+%%%% index %%%%
+%\usepackage{makeidx}            % índice remissivo
+
+%%%% links %%%%
+%\usepackage[colorlinks=true, allcolors=blue]{hyperref}   %usado para incluir links no texto
+
+%%%% miscellaneous %%%%
+\usepackage{multicol}
+\usepackage{multirow}           % para tabelas, basicamente essencial
+\usepackage[normalem]{ulem}     %para riscar palavra usando \sout
+\usepackage{calrsfs}
+\usepackage{subfigure}           %para colocar figuras lado a lado
+\usepackage{xcolor}
+\usepackage{tikz,tkz-base,tkz-fct}              % para criar desenhos
+\usetikzlibrary{fit,shapes.geometric,arrows,shadows.blur, angles} %pra fazer os diagramas de funções
+\usepackage{colortbl}
+\usepackage{cleveref}
+
+\usepackage{textcomp}
+\usepackage{gensymb} %usar comando \degree
+\usepackage{venndiagram}
+
+\usepackage{shadethm}
+\usepackage{bm}
+
+\usepackage{float}
+\usepackage{tasks}
+
+\usepackage{longtable}
+
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes}
+
+\usepackage{polynom} %divisão de polinômios
+
+
+\newcommand{\fim}{\hfill {$\Box$}}
+\newcommand{\destaque}[1]{\colorbox{cormodelo!50}{$\displaystyle #1$}}
+\newcommand{\iu}{{i\mkern1mu}} %unidade imaginária
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\cotan}{\operatorname{cot}}
+\newcommand{\cosec}{\operatorname{csc}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand*\abs[1]{\left|#1\right|}
+
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\cotg}{cotg}
+\DeclareMathOperator{\cossec}{cossec}
+\DeclareMathOperator{\arctg}{arctg}
+
+%\newcommand{\exemautorefname}{Exemplo}
+%\newcommand*{\propautorefname}{Proposição}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+\newcommand{\paralela}{\hspace{3pt}/\hspace{-2pt}/\hspace{3pt}}
+\newcommand{\eqline}{\noalign{\smallskip} \hline \noalign{\smallskip}}
+
+\chapterimage{tikz/output-figure0.pdf} % Chapter heading image
+\chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+\newenvironment{sol}
+{\let\oldqedsymbol=\qedsymbol
+  \renewcommand{\qedsymbol}{$\Diamond$}
+  \begin{proof}[\bfseries\upshape Solução]}
+  {\end{proof}
+  \renewcommand{\qedsymbol}{\oldqedsymbol}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercícios Resolvidos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{exeresol}{ER}[section]
+\newenvironment{resol}
+{\let\oldqedsymbol=\qedsymbol
+  \renewcommand{\qedsymbol}{$\Diamond$}
+  \begin{proof}[\bfseries\upshape Solução]}
+  {\end{proof}
+  \renewcommand{\qedsymbol}{\oldqedsymbol}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \newenvironment{dem}[1][\textbf{Demonstração:} \ ]{\textbf{#1}}{\hfill\rule{2mm}{2mm}}
+
+%----------------------------------------------------------------------------------------
+
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=tkz/, optimize command away=\includepdf]
+
+\begin{document}
+
+%% CAPA
+\include{paginas_iniciais}
+
+\pagestyle{fancy} % Enable default headers and footers again
+
+%\cleardoublepage % Start the following content on a new page
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\chapterimage{tikz/output-figure0.pdf}
+%\chapterimage{fundo_triang.png} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%------------------------------------------------
+\part{Início}
+
+\include{capitulos/cap1}
+
+%----------------------------------------------------------------------------------------
+
+\stopcontents[part] % Manually stop the 'part' table of contents here so the previous Part page table of contents doesn't list the following chapters
+
+
+%\part*{}
+%\include{respostas}
+
+\include{paginas_finais}
+
+
+%----------------------------------------------------------------------------------------
+%	APPENDICES
+%----------------------------------------------------------------------------------------
+
+\chapterimage{tikz/output-figure0.pdf} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%\begin{appendices*}
+\appendix
+\renewcommand{\chaptername}{Apêndices} % Change the chapter name to Appendix, i.e. "Appendix A: Title", instead of "Chapter A: Title" in the headers
+
+%------------------------------------------------
+\part{Apêndices}
+
+\include{capitulos/apendices}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

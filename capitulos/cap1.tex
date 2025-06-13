@@ -1,0 +1,225 @@
+\chapter{Um Guia Prático do modelo}
+
+\section{A Classe do Documento}
+
+Usamos uma classe personalizada chamada `LegrandOrangeBook`. Essa escolha afeta a estrutura padrão do documento, como a numeração de capítulos e seções, e o layout geral.
+
+\section{Inserindo Elementos Visuais}
+
+Imagens e tabelas são cruciais para a comunicação visual em documentos acadêmicos e técnicos.
+
+\subsection{Imagens}
+
+Para incluir imagens, o pacote `graphicx` é essencial. Certifique-se de que suas imagens estejam em um diretório especificado, como `Images/`, configurado no arquivo `.cls`.
+
+\begin{verbatim}
+\includegraphics[width=0.8\textwidth]{nome_da_imagem.png}
+\caption{Legenda da sua imagem.}
+\label{fig:minha_imagem}
+\end{verbatim}
+
+\subsection{Tabelas}
+
+Tabelas podem ser criadas com o ambiente `tabular`. O pacote `booktabs` é recomendado para tabelas com aparência profissional.
+
+\begin{verbatim}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        Coluna 1 & Coluna 2 & Coluna 3 \\
+        \midrule
+        Dado A & Dado B & Dado C \\
+        Dado D & Dado E & Dado F \\
+        \bottomrule
+    \end{tabular}
+    \caption{Legenda da sua tabela.}
+    \label{tab:minha_tabela}
+\end{table}
+\end{verbatim}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        Coluna 1 & Coluna 2 & Coluna 3 \\
+        \midrule
+        Dado A & Dado B & Dado C \\
+        Dado D & Dado E & Dado F \\
+        \bottomrule
+    \end{tabular}
+    \caption{Legenda da sua tabela.}
+    \label{tab:minha_tabela}
+\end{table}
+
+\section{Equações Matemáticas}
+
+O LaTeX brilha na composição de equações. O ambiente `equation` é um dos mais comuns.
+
+\begin{teo}[Exemplo de Equação]
+A famosa equação de Einstein, que relaciona massa e energia, é expressa como:
+\begin{equation}
+E = mc^2 \label{eq:einstein}
+\end{equation}
+Onde $E$ é energia, $m$ é massa e $c$ é a velocidade da luz no vácuo.
+\end{teo}
+
+\section{Ambientes Personalizados do Modelo}
+
+Este modelo de livro inclui diversos ambientes personalizados para destacar informações, como teoremas, definições, exemplos, corolários, exercícios e observações.
+
+\subsection{Teoremas, Proposições e Corolários}
+Utilize os ambientes `teo`, `prop`, `lema' e `coro` para apresentar resultados formais, proposições e corolários, respectivamente. Estes ambientes são configurados para ter um estilo visual distinto.
+
+\begin{prop}[Afirmação Importante]
+Uma proposição é uma afirmação que pode ser provada ou refutada, e é frequentemente utilizada em matemática e lógica.
+\end{prop}
+
+\begin{lema}[Afirmação Auxiliar]
+Um lema é uma proposição auxiliar que serve como um passo intermediário para a prova de um teorema maior.
+\end{lema}
+
+\begin{coro}[Consequência de um Teorema]
+Um corolário é uma proposição que se segue logicamente, e com pouca prova, de um teorema já provado.
+\end{coro}
+
+\subsection{Definições e Notações}
+Para apresentar conceitos ou introduzir notações, use os ambientes `defic` e `notation`.
+
+\begin{defic}[Termo Novo]
+Uma definição estabelece o significado de um termo ou conceito específico no contexto do documento.
+\end{defic}
+
+\begin{notation}[Representação de um Símbolo]
+O símbolo $\mathbb{R}$ representa o conjunto de todos os números reais.
+\end{notation}
+
+\subsection{Exemplos}
+O ambiente `exem' é ideal para ilustrar conceitos com exemplos práticos .
+
+\begin{exem}[Aplicação Prática]
+Considere a função $f(x) = x^2 + 2x + 1$. Para $x=2$, temos $f(2) = 2^2 + 2(2) + 1 = 4 + 4 + 1 = 9$.
+\end{exem}
+
+\subsection{Comando de execício}
+O comando `exer' adiciona um exercício. Se quiser, pode-se adicionar a resposta deste exercício usando em seguida o comando `resp'.
+
+\begin{exer}
+Descreva em suas próprias palavras a importância da separação de conteúdo e formatação no LaTeX.
+\end{exer}
+\begin{resp}
+    A resposta final é 4.
+\end{resp}
+
+\begin{exer}{Exercício: Para Reflexão}
+Calcule a integral
+\begin{equation*}
+    \int_{-\infty}^\infty e^{-x^2}dx
+\end{equation*}
+\end{exer}
+\begin{resp}
+    $\sqrt{\pi}$.
+\end{resp}
+
+Veja que a resposta não é exibida automaticamente mas é indicada que tem resposta (com o R).
+
+Para exibir as respostas, use o comando `shipoutAnswer'.
+
+\subsubsection{Respostas:}
+\shipoutAnswer
+
+% \begin{obs}
+% Este comando para exibir as resposta pode ser usado diversas vez no texto (ao final de cada seção, capitulo, ou livro).
+% \end{obs}
+
+\begin{obs}
+    Uma sugestão é usar o ambiente `secExercicios' para apresentar os exercícios. Ele cria outomaticamente a seção e coloca em duas colunas (bom para exercicios curtos pois economiza espaço).
+\end{obs}
+\begin{secExercicios}
+\begin{exer}
+    Exercicio 1
+\end{exer}
+
+\begin{exer}
+    Exercicio 2
+\end{exer}
+
+\begin{exer}
+    Exercicio 3
+\end{exer}
+\end{secExercicios}
+
+\begin{obs}
+    Estes comando apresentam eventualmente um `bug' na formatação do texto (pode pular de página indesejadamente)
+\end{obs}
+
+\subsection{Observações}
+O ambiente `obs` pode ser usado para adicionar notas importantes ou observações que precisam ser destacadas.
+
+\begin{obs}
+    Esta é uma observação importante sobre o uso de ambientes personalizados. Eles ajudam a manter a consistência visual do seu documento. 
+\end{obs}
+
+\section{Personalizando Cores no Modelo}
+
+O modelo "Legrand Orange Book" utiliza cores definidas no arquivo `main.tex'. A cor principal é escolhida no comando `cormodelo`. Para alterar a cor padrão de elementos como cabeçalhos de seções, caixas de teoremas e links, você precisará editar o comando.
+
+\subsection{Procedimento para Alterar a Cor}
+\begin{enumerate}
+    \item Garanta que o Overleaf tenha uma pasta chamada `cabecalho' com algum arquivo qualquer (pode estar vazio).
+
+    \item No arquivo `main', localize a definição `cormodelo'
+    Você encontrará linhas como esta: 
+    \begin{verbatim}
+        \definecolor{cormodelo}{RGB}{163, 11, 11}
+    \end{verbatim}
+    Note que o código \{163, 11, 11\} corresponde a um tom de vermelho.
+
+    \item Altere o código RGB da cor para a nova cor desejada. Você pode encontrar códigos de cores facilmente online. Por exemplo, para um azul vibrante, você poderia usar \{0, 0, 255\}.
+
+    \item Para alterar a cor da figura de cabeçalho, vá ao arquivo `figura-cabecalho.tex', altere para a cor desejada o comando
+    \begin{verbatim}
+        \definecolor{cormodelo}{RGB}{163, 11, 11}
+    \end{verbatim}
+    
+    Compile o arquivo `figura-cabecalho.tex' para gerar a nova imagem.
+
+    \item Recompile seu documento `main.tex'. As mudanças de cor serão aplicadas automaticamente aos elementos que utilizam a cor.
+\end{enumerate}
+
+\begin{obs}
+    Mudar o código afetará todos os elementos que a utilizam, como os títulos de capítulos, as linhas de caixas de teoremas e os links. Certifique-se de escolher uma cor que harmonize com o design geral do seu livro.
+\end{obs}
+
+\section{Adicionando Links com QR Code}
+
+O modelo oferece um comando conveniente para adicionar links que geram um QR code automaticamente, tornando o acesso a recursos externos muito fácil para o leitor. Este recurso é implementado através do comando, `link', `video' ou `geogebra', que espera dois argumentos: a URL e uma breve descrição do link. Embora os nomes sugiram vídeo ou GeoGebra, você pode usá-los para qualquer URL, o importante é a funcionalidade de QR code.
+
+\subsection{Comando \texttt{\string\link}}
+
+O comando `link{URL}{Descrição do link} gera um QR code para a URL fornecida, acompanhado a descrição. 
+
+\begin{verbatim}
+\link{https://www.google.com}{Visite o Google para mais informações.}
+\end{verbatim}
+
+\link{https://www.google.com}{Visite o Google para mais informações.}
+
+\subsection{Comando \texttt{\string\video}}
+
+O comando `video{URL}{Descrição do link} gera um QR code para a URL fornecida, acompanhado de um ícone de vídeo e a descrição. 
+
+\begin{verbatim}
+\video{https://www.youtube.com}{Visite o Youtube para mais informações.}
+\end{verbatim}
+
+\video{https://www.google.com}{Visite o Google para mais informações.}
+
+\subsection{Comando \texttt{\string\geogebra}}
+
+Ó comando `geogebra{URL}{Descrição do link}' também gera um QR code, mas com um ícone de GeoGebra. 
+
+\begin{verbatim}
+\geogebra{https://www.geogebra.org/m/example}{Exemplo Interativo no GeoGebra.}
+\end{verbatim}
+
+\geogebra{https://www.geogebra.org/m/example}{Exemplo Interativo no GeoGebra.}

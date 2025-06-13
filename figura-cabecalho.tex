@@ -1,0 +1,64 @@
+\documentclass{standalone}
+%\immediate\write18{mkdir -p figures}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{external}
+\usetikzlibrary{fadings}
+\tikzexternalize[prefix=cabecalho/] % Cria PDFs externos na pasta 
+
+\begin{document}
+\begin{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% DEFINA A COR BASE DA FIGURA %%%%
+\definecolor{cormodelo}{RGB}{163, 11, 11}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Parâmetros
+\def\rows{7}
+\def\cols{15}
+\def\size{2}
+
+% Loop para desenhar triângulos e quadrados com tons de azul
+\foreach \i in {0,...,\cols} {
+  \foreach \j in {1,...,\rows} {
+    % Define a cor com base na altura: do azul ao branco
+    \pgfmathsetmacro{\fade}{\j/\rows*100}
+
+    \ifodd\numexpr\j\relax
+    %Ponto inferior esquerdo
+    \pgfmathsetmacro{\x}{\i*\size}
+    \pgfmathsetmacro{\y}{(\j-1)*\size}
+    
+    \pgfmathsetmacro{\basePct}{(\j/\rows)*80+5}
+    \pgfmathsetmacro{\shadePct}{max(min(\basePct+(rnd*10-20),100),0)+7*rnd}
+      
+      \filldraw[cormodelo!\shadePct, cormodelo!\shadePct] (\x,\y) -- ({\x+\size},\y) -- ({\x+\size},{\y+\size}) -- cycle;
+
+    \pgfmathsetmacro{\basePct}{(\j+0.5)/\rows*80+5}
+    \pgfmathsetmacro{\shadePct}{max(min(\basePct+(rnd*10-20),100),0)+7*rnd}
+      
+      \filldraw[cormodelo!\shadePct, cormodelo!\shadePct] (\x,\y) -- (\x,{\y+\size}) -- ({\x+\size},{\y+\size}) -- cycle;
+      
+      \else
+    %Ponto superior esquerdo
+      \pgfmathsetmacro{\x}{\i*\size}
+    \pgfmathsetmacro{\y}{(\j*\size}
+    
+    \pgfmathsetmacro{\basePct}{(\j+0.5)/\rows*80+5}
+      \pgfmathsetmacro{\shadePct}{max(min(\basePct+(rnd*10-20),100),0)+7*rnd}
+      
+      \filldraw[cormodelo!\shadePct, cormodelo!\shadePct] (\x,\y) -- ({\x+\size},\y) -- ({\x+\size},{\y-\size}) -- cycle;
+
+    \pgfmathsetmacro{\basePct}{(\j)/\rows*80+5}
+    \pgfmathsetmacro{\shadePct}{max(min(\basePct+(rnd*10-20),100),0)+7*rnd}
+      
+      \filldraw[cormodelo!\shadePct, cormodelo!\shadePct] (\x,\y) -- (\x,{\y-\size}) -- ({\x+\size},{\y-\size}) -- cycle;
+      \fi
+  }
+}
+
+\fill[color=white, path fading=north] (0,-1) -- (\cols*\size+\size,-1) -- (\cols*\size+\size,10) -- (0,10);
+\end{tikzpicture}
+\end{document}

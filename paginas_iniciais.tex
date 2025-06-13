@@ -1,0 +1,85 @@
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\titlepage % Output the title page
+    {\begin{tikzpicture}[remember picture,overlay]
+      % Fundo (imagem ocupando toda a página)
+      \node[anchor=north west,inner sep=0pt] at (current page.north west)
+        {\includegraphics[width=\paperwidth]{tikz/output-figure0.pdf}};
+
+      % Máscara translúcida branca no topo (ajuste opacidade/cor)
+      \fill[white,opacity=0] 
+        (current page.north west) rectangle (current page.south east);
+
+      % Exemplo: moldura central ou texto
+
+      \node[anchor=south west,inner sep=0pt] at (current page.south west)
+        {\includegraphics[width=\paperwidth, angle=180]{tikz/output-figure0.pdf}};
+
+    \end{tikzpicture}}%}
+	%{\includegraphics[width=\paperwidth]{Images/Teste_capa.pdf}}}
+        % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+	{ % Title(s) and author(s)
+		\centering\sffamily % Font styling
+        \includegraphics[width=2.3cm]{./Images/logouff_vertical_azul.png}
+        
+		\vspace{16pt} % Vertical whitespace
+		{\Huge\bfseries Modelo de livro/notas de aula\par} % Book title
+		\vspace{10pt} % Vertical whitespace
+		{\LARGE Dep. Matemática -- ICEx -- Volta Redonda\par} % Subtitle
+        \vspace{16pt} % Vertical whitespace
+  
+		{\huge\bfseries Jordan Lambert \par} % Author name
+        \vspace{5pt}
+        {Versão: \today\par}
+	}
+
+
+%\listoffigures % Output the list of figures, comment or remove this command if not required
+
+%\listoftables % Output the list of tables, comment or remove this command if not required
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % Suppress headers and footers on this page
+
+~\vfill % Push the text down to the bottom of the page
+
+\noindent Por Jordan Lambert.
+
+\vspace{.5cm}
+\noindent 
+
+\noindent Baseado no template de Goro Akechi, originalmente criado por Mathias Legrand, com Licença Creative Commons Atribuição NãoComercial CompartilhaIgual 4.0 Internacional (CC BY-NC-SA 4.0). Disponível em: \url{https://www.latextemplates.com/template/legrand-orange-book} % Copyright notice
+
+\vspace{.5cm}
+%\noindent \textsc{Published by Publisher}\\ % Publisher
+
+%\noindent Repositório: \url{https://sites.google.com/view/jordanlambert/} % URL
+
+\vspace{.5cm}
+\noindent O conteúdo deste trabalho está licenciado sob a Licença Creative Commons Atribuição CompartilhaIgual 4.0 Internacional. Para ver uma cópia desta licença, visite
+\url{https://creativecommons.org/licenses/by-sa/4.0/} ou envie uma carta para Creative Commons, PO Box 1866, Mountain View, CA 94042, USA. % License information, replace this with your own license (if any)
+
+\vspace{.5cm}
+\noindent \textit{Última atualização, \today} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+\chapter*{Prefácio}
+
+Bem-vindo ao "Modelo de Livro - VMA", um guia prático e um template elaborado em LaTeX, projetado para simplificar o processo de criação de documentos.
+
+Este modelo nasce da necessidade de oferecer aos autores uma estrutura robusta e flexível, que combine a elegância tipográfica inerente ao LaTeX com um design moderno e acessível, inspirado na estética do "Legrand Orange Book".
+
+Ao longo das páginas que se seguem, você encontrará não apenas um template pronto para ser preenchido, mas também um guia prático que desvenda as funcionalidades essenciais e as personalizações implementadas nesta classe de documento. Desde a estruturação de capítulos e seções até a inclusão de elementos visuais, equações matemáticas e a personalização de cores.
+
+\setcounter{tocdepth}{0}
+\tableofcontents % Output the table of contents
